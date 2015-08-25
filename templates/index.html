@@ -1,0 +1,24 @@
+<h1> Welcome {{Tim}} ! </h1>
+<br>
+<p>{{dirv}}</p>
+
+{% if tgf %}
+<h3>User Query</h3>
+{% for i in tgf %}
+  <li> {{i.role.name}} : {{i.name}}  </li>
+{% endfor %}
+{% endif %}
+
+{% if ttgf %}
+<h3>Role Query</h3>
+{% for i in ttgf %}
+  <li> {{i.name}} : {{i.users[0].name}}  </li>
+{% endfor %}
+{% endif %}
+
+
+{% if Tim=='Admin' %}
+  {% for ii in session %}
+    <li> {{ii}} : {{session[ii]}}</li>
+  {% endfor %}
+{% endif %}
