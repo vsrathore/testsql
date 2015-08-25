@@ -49,10 +49,10 @@ def login():
 #logout Request
 @app.route('/logout', methods=["GET"])
 def logout():
-		res = make_response(render_template('index.html', Tim=request.cookies.get('Username'), dirv='Loged_out Succesfully !'))
+		res = make_response(render_template('index.html', Tim='Stranger', dirv='Loged_out Succesfully !'))
 		res.set_cookie('Username', '')
 		res.set_cookie('Loged_in', '')
-		if 'loged_in' in session:
+		if ('loged_in' and 'csrf_token') in session:
 			del session['loged_in']
 			del session['csrf_token']
 		return res
